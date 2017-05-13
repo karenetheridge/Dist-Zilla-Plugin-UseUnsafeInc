@@ -5,7 +5,7 @@ package Dist::Zilla::Plugin::UseUnsafeInc;
 # ABSTRACT: Indicates the value of PERL_USE_UNSAFE_INC to use during installation
 # KEYWORDS: metadata PERL_USE_UNSAFE_inc distribution testing compatibility environment
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Moose;
 with 'Dist::Zilla::Role::MetaProvider',
