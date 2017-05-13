@@ -2,8 +2,8 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::UseUnsafeInc;
 # vim: set ts=8 sts=4 sw=4 tw=115 et :
-# ABSTRACT: Indicates the value of PERL_USE_UNSAFE_INC to use during installation
-# KEYWORDS: metadata PERL_USE_UNSAFE_inc distribution testing compatibility environment
+# ABSTRACT: Indicates in metadata the value of PERL_USE_UNSAFE_INC to use during installation
+# KEYWORDS: metadata PERL_USE_UNSAFE_INC INC distribution testing compatibility environment security
 
 our $VERSION = '0.002';
 
