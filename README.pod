@@ -1,28 +1,88 @@
 =pod
 
+=encoding UTF-8
+
+=head1 NAME
+
+Dist::Zilla::Plugin::UseUnsafeInc - Indicates the value of PERL_USE_UNSAFE_INC to use during installation
+
+=head1 VERSION
+
+version 0.001
+
 =head1 SYNOPSIS
 
 In your F<dist.ini>:
 
+    ; this distribution still requires . to be in @INC
     [UseUnsafeInc]
+    dot_in_INC = 1
+
+or:
+
+    ; this distribution does not need . to be in @INC
+    [UseUnsafeInc]
+    dot_in_INC = 0
 
 =head1 DESCRIPTION
 
-This is a L<Dist::Zilla> plugin that...
+=for Pod::Coverage metadata after_build before_release
+
+This is a L<Dist::Zilla> plugin that populates the C<x_use_unsafe_inc> key in your distribution metadata. This
+indicates to components of the toolchain that C<PERL_USE_UNSAFE_INC> should be set to a certain value during
+installation and testing, overriding any previous setting e.g. from the environment or from other tools.
+
+The environment variable is also set in L<Dist::Zilla> while building and testing the distribution, to ensure
+that local testing behaves in an expected fashion.
+
+Additionally, the release must be performed using a Perl version that supports C<PERL_USE_UNSAFE_INC>, to further
+guarantee test integrity.
 
 =head1 CONFIGURATION OPTIONS
 
-=head2 C<foo>
+=head2 C<use_unsafe_inc>
 
-...
+This configuration value must be set in your F<dist.ini>, to either 0 or 1.  C<PERL_USE_UNSAFE_INC> will be set to
+the same value by tools that support it.
 
-=head1 ACKNOWLEDGEMENTS
+=head2 C<DZIL_ANY_PERL>
 
-...
+When this environment variable is true, the Perl version check at release time (see above) is skipped.
+
+=head1 BACKGROUND
 
 =head1 SEE ALSO
 
-=for :list
-* L<foo>
+=over 4
+
+=item *
+
+L<perldelta/'.' and @INC>
+
+=back
+
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-UseUnsafeInc>
+(or L<bug-Dist-Zilla-Plugin-UseUnsafeInc@rt.cpan.org|mailto:bug-Dist-Zilla-Plugin-UseUnsafeInc@rt.cpan.org>).
+
+There is also a mailing list available for users of this distribution, at
+L<http://dzil.org/#mailing-list>.
+
+There is also an irc channel available for users of this distribution, at
+L<C<#distzilla> on C<irc.perl.org>|irc://irc.perl.org/#distzilla>.
+
+I am also usually active on irc, as 'ether' at C<irc.perl.org>.
+
+=head1 AUTHOR
+
+Karen Etheridge <ether@cpan.org>
+
+=head1 COPYRIGHT AND LICENCE
+
+This software is copyright (c) 2017 by Karen Etheridge.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
