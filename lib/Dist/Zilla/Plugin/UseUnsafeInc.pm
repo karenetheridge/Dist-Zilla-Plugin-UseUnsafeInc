@@ -83,7 +83,9 @@ or:
 
 This is a L<Dist::Zilla> plugin that populates the C<x_use_unsafe_inc> key in your distribution metadata. This
 indicates to components of the toolchain that C<PERL_USE_UNSAFE_INC> should be set to a certain value during
-installation and testing, overriding any previous setting e.g. from the environment or from other tools.
+installation and testing.  If C<PERL_USE_UNSAFE_INC> has already been set in the environment, it is unchanged, but
+the metadata is respected at a higher precedence than any setting that other tools e.g. L<Test::Harness> might have
+done.
 
 The environment variable is also set in L<Dist::Zilla> while building and testing the distribution, to ensure
 that local testing behaves in an expected fashion.
