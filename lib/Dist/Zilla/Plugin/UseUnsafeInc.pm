@@ -90,8 +90,8 @@ done.
 The environment variable is also set in L<Dist::Zilla> while building and testing the distribution, to ensure
 that local testing behaves in an expected fashion.
 
-Additionally, the release must be performed using a Perl version that supports C<PERL_USE_UNSAFE_INC>, to further
-guarantee test integrity.
+Additionally, the release must be performed using a Perl version that supports C<PERL_USE_UNSAFE_INC> (that is,
+5.26), to further guarantee test integrity. To bypass this check, set C<DZIL_ANY_PERL=1> in the environment.
 
 =head1 CONFIGURATION OPTIONS
 
