@@ -110,5 +110,6 @@ When this environment variable is true, the Perl version check at release time (
 
 =for :list
 * L<perldelta/'.' and @INC>
+* L<Dist::Zilla::Plugin::EnsureLatestPerl>
 
 =cut
