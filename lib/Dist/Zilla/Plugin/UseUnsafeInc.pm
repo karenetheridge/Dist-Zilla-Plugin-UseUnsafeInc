@@ -109,7 +109,7 @@ When this environment variable is true, the Perl version check at release time (
 =head1 SEE ALSO
 
 =for :list
-* L<perldelta/'.' and @INC>
+* L<perl5260delta/'.' and @INC>
 * L<Dist::Zilla::Plugin::EnsureLatestPerl>
 
 =cut
